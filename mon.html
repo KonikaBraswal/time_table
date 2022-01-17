@@ -7,7 +7,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font-family: Lucida Handwriting;
+  font-family: Cursive;
 }
 
 .bg
@@ -41,7 +41,7 @@ color:#000000;
 }
 p{
 color: #20202c;
-  font-family: Lucida Handwriting;
+  font-family: Cursive;
 }
 a:link {
   color:  #000033;
@@ -72,8 +72,9 @@ a:active {
 
 <div class="bg"></div>
 <div class="bg-text">
- <div id="txt"></div>
   <h1>Monday</h1>
+   <div id="txt"></div>
+   <br>
 <p>08:00-09:40 AM : At Liberty</p>
 <p>09:40-11:20 AM : At Liberty</p>
 <p>11:20-12:10 PM :<a href ="https://tiet.zoom.us/my/csed13
@@ -101,16 +102,20 @@ a:active {
           let h = today.getHours();
           let m = today.getMinutes();
           let s = today.getSeconds();
-          m = checkTime(m);
-          s = checkTime(s);
-          document.getElementById('txt').innerHTML =  date+"/"+month+"/"+year+"  "+h + ":" + m + ":" + s;
+ 
+		  var newformat = h >= 12 ? 'PM' : 'AM'; 
+                
+                // Find current hour in AM-PM Format
+                h = h % 12; 
+                
+                // To display "0" as "12"
+                h = h ? h : 12; 
+                m = m < 10 ? '0' + m : m;
+                
+          document.getElementById('txt').innerHTML = h + ":" + m + ":" + s+" "+newformat;
           setTimeout(startTime, 1000);
         }
-        
-        function checkTime(i) {
-          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-          return i;
-        }
+       
         </script>
 </body>
 </html>
