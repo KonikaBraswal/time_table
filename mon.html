@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body, html {
   height: 100%;
@@ -19,7 +20,7 @@ body, html {
   filter: blur(5px);
   -webkit-filter: blur(5px);
 }
-.bg-text {
+.bg-text{
  
   font-weight: bold;
   position: absolute;
@@ -30,6 +31,10 @@ body, html {
   width: 80%;
   padding: 20px;
   text-align: center;
+}
+#txt{
+color:black;
+position:center;
 }
 h1{
 color:#000000;
@@ -63,9 +68,11 @@ a:active {
 
 </style>
 </head>
-<body>
+<body onload="startTime()">
+
 <div class="bg"></div>
 <div class="bg-text">
+ <div id="txt"></div>
   <h1>Monday</h1>
 <p>08:00-09:40 AM :<a href ="https://tiet.zoom.us/my/CSED9"> Artificial Intelligence UCS411 (PRACTICAL) </a></p>
 <p>09:40-11:20 AM :<a href ="https://tiet.zoom.us/my/CSED12"> Design &amp Analysis of Algorithm UCS415 (PRACTICAL) </a></p>
@@ -78,5 +85,26 @@ a:active {
 <p>04:20-05:10 PM : At Liberty</p>
 <p>05:10-06:00 PM : At Liberty</p>
 </div>
+<script>    
+        function startTime() {
+          const today = new  Date();
+		  let date= today.getDate();
+		  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		  let month= months[today.getMonth()];
+		  let year= today.getFullYear();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =  date+"/"+month+"/"+year+"  "+h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
+        }
+        
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+        </script>
 </body>
 </html>
