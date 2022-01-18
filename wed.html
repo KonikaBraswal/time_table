@@ -68,6 +68,8 @@ a:active {
 <div class="bg"></div>
 <div class="bg-text">
   <h1>Wednesday</h1>
+   <div id="txt"></div>
+   <br>
 <p>08:00-08:50 AM :<a href ="https://tiet.zoom.us/my/csed20"> Database Engineer UCS661 (LECTURE)</a></p>
 <p>08:50-09:40 AM :<a></a> NO CLASS</p>
 <p>09:40-10:30 AM : <a href ="https://tiet.zoom.us/my/csed15"> Microprocessor Based System Design UCS617 (PRACTICAL)</a>  </p>
@@ -80,5 +82,30 @@ a:active {
 <p>03:30-04:20 PM :<a href ="https://tiet.zoom.us/my/csed10"> Theory of Computation UCS701 (LECTURE) </a></p>
 <p>04:20-05:10 PM :<a href ="https://tiet.zoom.us/my/csed12"> Microprocessor Based System Design UCS617 (LECTURE)</a></p>
 <p>05:10-06:00 PM :<a></a> NO CLASS</p>
+  <script>    
+        function startTime() {
+          const today = new  Date();
+		  let date= today.getDate();
+		  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		  let month= months[today.getMonth()];
+		  let year= today.getFullYear();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+ 
+		  var newformat = h >= 12 ? 'PM' : 'AM'; 
+                
+                // Find current hour in AM-PM Format
+                h = h % 12; 
+                
+                // To display "0" as "12"
+                h = h ? h : 12; 
+                m = m < 10 ? '0' + m : m;
+                
+          document.getElementById('txt').innerHTML = h + ":" + m + ":" + s+" "+newformat;
+          setTimeout(startTime, 1000);
+        }
+       
+        </script>
 </body>
 </html>
