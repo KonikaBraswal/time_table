@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Lucida Handwriting;
+  font-size:100vm;
 }
 
 .bg
@@ -14,7 +16,7 @@ body, html {
   background-image: url("https://image.freepik.com/free-vector/nature-background-with-golden-foil_23-2148658154.jpg");
   height: 100%; 
   background-position: center;
-  background-repeat:repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   filter: blur(5px);
   -webkit-filter: blur(5px);
@@ -30,6 +32,10 @@ body, html {
   width: 80%;
   padding: 20px;
   text-align: center;
+}
+	#txt{
+color:black;
+position:center;
 }
 h1{
 color:#000000;
@@ -63,20 +69,45 @@ a:active {
 
 </style>
 </head>
-<body>
+<body onload="startTime()">
 <div class="bg"></div>
 <div class="bg-text">
-  <h1>Thursday</h1>
-<p>08:00-09:40 AM : At Liberty</p>
-<p>08:50-09:40 AM :<a href ="https://tiet.zoom.us/my/CSED8" target="_blank"> Design &amp Analysis of Algorithm UCS415 (LECTURE) </a></p>
-<p>09:40-10:30 AM :<a href ="https://tiet.zoom.us/my/CSED8"> Artificial Intelligence UCS411 (LECTURE) </a></p>
-<p>10:30-11:20 AM :<a href ="https://tiet.zoom.us/my/CSED8"> Computer Networks UCS414 (LECTURE) </a></p>
-<p>11:20-12:10 PM :<a href ="https://tiet.zoom.us/my/eied1"> Measurement Science &amp Techniques UES034 (LECTURE) </a></p>
-<p>12:10-01:00 PM : At Liberty</p>
-<p>01:00-02:40 PM :<a href ="https://tiet.zoom.us/my/ECED12"> Engineering Design Project II UTA014 (PRACTICAL) </a></p>
-<p>02:40-03:30 PM : At Liberty</p>
-<p>03:30-04:20 PM : At Liberty</p>
-<p>04:20-05:10 PM : At Liberty</p>
-<p>05:10-06:00 PM : At Liberty</p>
+  <h1>Wednesday</h1>
+   <div id="txt"></div>
+   <br>
+<p>08:00-08:50 AM :<a href ="https://tiet.zoom.us/my/csed20"> Database Engineer UCS661 (PRACTICAL)</a></p>
+<p>08:50-09:40 AM :<a href ="https://tiet.zoom.us/my/csed20"> Database Engineer UCS661 (PRACTICAL)</a></p>
+<p>09:40-10:30 AM : <a href ="https://tiet.zoom.us/my/csed12"> Innovation and Entrepreneurship UTA025 (LECTURE)</a>  </p>
+<p>10:30-11:20 PM :<a></a>NO CLASS</p>
+<p>11:20-12:10 PM :<a href ="https://tiet.zoom.us/my/csed12 "> Theory of Computation UCS701 (TUTORIAL)  </a></p>
+<p>12:10-01:00 PM : <a></a>NO CLASS</p>
+<p>01:00-01:50 PM : <a></a>NO CLASS</p>
+<p>01:50-02:40 PM :<a></a>NO CLASS</p>
+<p>02:40-03:30 PM :<a></a>NO CLASS</p>
+<p>03:30-04:20 PM :<a href ="https://tiet.zoom.us/my/csed10"> Theory of Computation UCS701 (LECTURE) </a></p>
+<p>04:20-05:10 PM :<a href ="https://tiet.zoom.us/my/csed12"> Microprocessor Based System Design UCS617 (LECTURE)</a></p>
+<p>05:10-06:00 PM :<a></a> NO CLASS</p>
+  <script>    
+        function startTime() {
+          const today = new  Date();
+		  let date= today.getDate();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+ 
+		  var newformat = h >= 12 ? 'PM' : 'AM'; 
+                
+                // Find current hour in AM-PM Format
+                h = h % 12; 
+                
+                // To display "0" as "12"
+                h = h ? h : 12; 
+                m = m < 10 ? '0' + m : m;
+                
+          document.getElementById('txt').innerHTML = h + ":" + m + ":" + s+" "+newformat;
+          setTimeout(startTime, 1000);
+        }
+       
+        </script>
 </body>
 </html>
