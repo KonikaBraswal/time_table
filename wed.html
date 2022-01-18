@@ -32,6 +32,10 @@ body, html {
   padding: 20px;
   text-align: center;
 }
+	#txt{
+color:black;
+position:center;
+}
 h1{
 color:#000000;
 }
@@ -64,7 +68,7 @@ a:active {
 
 </style>
 </head>
-<body>
+<body onload="startTime()">
 <div class="bg"></div>
 <div class="bg-text">
   <h1>Wednesday</h1>
@@ -86,9 +90,6 @@ a:active {
         function startTime() {
           const today = new  Date();
 		  let date= today.getDate();
-		  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		  let month= months[today.getMonth()];
-		  let year= today.getFullYear();
           let h = today.getHours();
           let m = today.getMinutes();
           let s = today.getSeconds();
